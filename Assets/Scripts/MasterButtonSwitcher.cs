@@ -5,26 +5,28 @@ using UnityEngine;
 public class MasterButtonSwitcher : MonoBehaviour
 {
     public MasterButton[] masterButtons;
+    public ColorChanger cc;
+
     
     void Update(){
         foreach(MasterButton mb in masterButtons){
-            MasterButton mbStatus = mb.GetComponent<MasterButton>();
-            bool mb_isOn = mbStatus.m_isOn;
-            bool mb_isToggled = mbStatus.m_isToggled;
-            
-            if(mb_isOn == true && mb_isToggled == true){
-                print(mb.tag + "Toggled On");
-                string onBtnTag = mb.tag;
-                TurnOffOtherButtons(onBtnTag);
-                mb_isToggled = false;
-            }    
+            if(mb.m_isToggled == true){
+                // singlePlayMode for master buttons
+                if(mb.m_isOn == true){
+                    TurnOffOtherButtons(mb.tag);
+                }  
+                mb.m_isToggled = false;
+            }  
         }
 
     void TurnOffOtherButtons(string onBtnTag){
         foreach(MasterButton other_mb in masterButtons){
             if(other_mb.tag != onBtnTag && other_mb.m_isOn == true){
-                print("Turn off other btns called");
+                //print("Turn off other btns called");
+                //print("OnBtnTag: " + onBtnTag);
+                //print("Other_mb: " + other_mb);
                 other_mb.m_isOn = false;
+                other_mb.ChangeColor();
                 other_mb.m_isToggled = true;}
             }   
         }

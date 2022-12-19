@@ -11,18 +11,14 @@ public class buttonClick : MonoBehaviour
 
     
     // color changing method
-    public void ChangeColor(){
-        // default on/off vals
-        Color onColor = Color.red;
-        Color offColor = Color.black;
-        
+    public void ChangeColor(){        
         // Sprite Renderer is what displays color
         sr = GetComponent<SpriteRenderer>();
         
         if(isOn == true){
-            sr.color = onColor;
+            sr.color = Color.red;
         }else{
-            sr.color = offColor;
+            sr.color = Color.black;
         }
     }
 

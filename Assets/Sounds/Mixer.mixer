@@ -160,19 +160,15 @@ AudioMixerController:
     name: chords_b3_vol
   m_AudioMixerGroupViews:
   - guids:
-    - 695f18d46d992417aa8cbe1ad43f9ec8
     - 990ddac27f3e547268a8216e6a623d4e
     - 73e91b231599b400c852b0c60833f6f6
     - 417184f73dce349558b1b328d2dc2c0a
-    - 7fac7bc13d9f947d4b57583bd476c005
-    - 143db337729af449c95e24390071719f
     - 8bb8adad2f0b243738753aade1dd62cb
     - 76e86c02d0cd54017a49a03140bfe78b
     - 0a324da4da0f241a19a4033ffe6a1040
     - 8373fce81aeba4e21814c633d299d45e
     - 1c1fcdd3757304474aeb5fb302b7d14e
     - f688800c75f814327a3c185ba826aaba
-    - 1841ced5e75a14a22ab57dad4aab1e9b
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}

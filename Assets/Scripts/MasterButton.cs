@@ -7,41 +7,59 @@ public class MasterButton : MonoBehaviour
     public Button[] buttonRow;
     public bool m_isOn = false;
     public bool m_isToggled = false;
-    [HideInInspector]
-    public ColorChanger cc;
+    SpriteRenderer sr;
 
     void OnMouseUpAsButton(){
+        m_isToggled = true;
+        
+
+        // master button controls
+        if(m_isOn == true){
+            m_isOn = false;
+        }else{
+            m_isOn = true;}
+        
+        ChangeColor();
+        
+        // Button row controls
+        MasterButtonAction();
+        
+    }
+
+
+    // color changing method
+    public void ChangeColor(){        
+        // Sprite Renderer is what displays color
+        sr = GetComponent<SpriteRenderer>();
+        
+        if(m_isOn == true){
+            sr.color = Color.red;
+        }else{
+            sr.color = Color.black;
+        }
+    }
+
+
+    public void MasterButtonAction(){
+        // button row controls
         foreach(Button b in buttonRow){
             // accessing needed vars in obj
             GameObject btnObj = b.obj;
             buttonClick btnStatus = b.obj.GetComponent<buttonClick>();
             
             // on/off
-            if(m_isOn == true){
+            if(m_isOn == false){
                 btnStatus.isOn = false;
-            }
-            else if(m_isOn == false){
+                }
+            else if(m_isOn == true){
                 btnStatus.isOn = true;
-            }
+                }
+            
             btnStatus.isToggled = true;
             
-            // for multiplay mode - leaving on for default
+            // for singlePlayMode - leaving on for default
             btnStatus.switcherFlag = true;
-            SpriteRenderer sr = b.obj.GetComponent<SpriteRenderer>();
-            cc.ChangeColor(sr, btnStatus.isOn);
-
-            
-        }
-        if(m_isOn == true){
-            m_isOn = false;
-        }else{
-            m_isOn = true;
-        }
-        
-        m_isToggled = true;
-        SpriteRenderer m_sr = GetComponent<SpriteRenderer>();
-        cc.ChangeColor(m_sr, m_isOn);
-
+            btnStatus.ChangeColor();
+            }
     }
-
 }

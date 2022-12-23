@@ -17,6 +17,9 @@ TagManager:
   - mb1
   - mb2
   - mb3
+  - reverb
+  - lopass
+  - hipass
   layers:
   - Default
   - TransparentFX

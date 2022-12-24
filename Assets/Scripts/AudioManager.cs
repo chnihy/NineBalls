@@ -92,5 +92,71 @@ public class AudioManager : MonoBehaviour
             yield break;
         }
     }
+    
+    // for volume fade ins/outs
+    public class FadeFx{
+        // create an enumerator class
+        public static IEnumerator StartFade(AudioMixer mixer, string exposedParam, float duration, float targetValue)
+        {
+            // init time
+            float currentTime = 0;
+            
+            // get vol of mixer channel
+            float currentVal;
+            mixer.GetFloat(exposedParam, out currentVal);
+
+            while (currentTime < duration)
+            {
+                currentTime += Time.deltaTime;
+                float newVal = Mathf.Lerp(currentVal, targetValue, currentTime / duration);
+                mixer.SetFloat(exposedParam, newVal);
+                yield return null;
+            }
+            yield break;
+        }
+    }
+
+    public void FxChange(string FxName, string cmmd){
+        // set target mixer channels, fxname
+        string mixerGroupParam = FxName;
+        float duration = 3f;
+        float targetVal = 0f;
+
+        // take cmmd
+        // swtich for cmmds
+        if(cmmd == "fadeIn"){
+            switch(FxName){
+                case "reverb":
+                    targetVal = -600f;
+                    break;
+                case "lopass":
+                    targetVal = 450f;
+                    break;
+                case "hipass":
+                    targetVal = 1200f;
+                    break;
+            }
+            print(FxName +  " Fading In"  + " target val: " + targetVal);
+        }if(cmmd == "fadeOut"){
+            switch(FxName){
+                case "reverb":
+                    targetVal = -10000f;
+                    break;
+                case "lopass":
+                    targetVal = 20000f;
+                    break;
+                case "hipass":
+                    targetVal = 10f;
+                    break;
+            }
+            print(FxName +  " Fading Out" + " target val: " + targetVal);
+        }
+
+
+
+        // run()
+        StartCoroutine(FadeFx.StartFade(mixer, mixerGroupParam, duration, targetVal));        
+    }
 }
+
 

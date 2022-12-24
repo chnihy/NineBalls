@@ -457,12 +457,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOn: 0
   isToggled: 0
+  audioManager: {fileID: 241644784}
   FxSelect:
   - Name: reverb
     isEnabled: 0
-  - Name: lo pass
+  - Name: lopass
     isEnabled: 0
-  - Name: hi pass
+  - Name: hipass
     isEnabled: 1
 --- !u!1001 &276563677
 PrefabInstance:
@@ -1453,12 +1454,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOn: 0
   isToggled: 0
+  audioManager: {fileID: 241644784}
   FxSelect:
   - Name: reverb
     isEnabled: 0
-  - Name: lo pass
+  - Name: lopass
     isEnabled: 1
-  - Name: hi pass
+  - Name: hipass
     isEnabled: 0
 --- !u!1001 &1057841704
 PrefabInstance:
@@ -1922,12 +1924,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOn: 0
   isToggled: 0
+  audioManager: {fileID: 241644784}
   FxSelect:
   - Name: reverb
     isEnabled: 1
-  - Name: lo pass
+  - Name: lopass
     isEnabled: 0
-  - Name: hi pass
+  - Name: hipass
     isEnabled: 0
 --- !u!1001 &6303684264052411819
 PrefabInstance:

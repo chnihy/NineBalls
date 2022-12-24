@@ -218,12 +218,12 @@ AudioMixerController:
     name: bass_b3_vol
   - guid: cdb896cd491224f91af718e0d80ffc25
     name: chords_b3_vol
-  - guid: b7b3f8b92afa341cfa34570dde121242
-    name: MyExposedParam 1
-  - guid: 721970483a61241eeb252fb52f9d1d56
-    name: MyExposedParam 2
-  - guid: 1e3f963f66313445ba7fcdf14a38b8cd
-    name: MyExposedParam 3
+  - guid: a803a4f0017ba43638d76bca75c0e818
+    name: hipass
+  - guid: 494cf816454994c599c2aef6331bf23f
+    name: lopass
+  - guid: e0a52c8d6db2d43ce827f7e7fa2b0050
+    name: reverb
   m_AudioMixerGroupViews:
   - guids:
     - 695f18d46d992417aa8cbe1ad43f9ec8
@@ -303,7 +303,8 @@ AudioMixerSnapshotController:
     d65d81479ab2d4ac489a7da4508cff90: -8.841784
     dd7b79a745ddd4b5cbb0292e21993263: 591
     721970483a61241eeb252fb52f9d1d56: 0
-    1775cdb949ac348548b312f24953e331: 5.42
+    1ff42d792606142899af7d21dbe063c8: 1
+    1775cdb949ac348548b312f24953e331: 1.91
     d12fb1ba4a4c643d29ae111cfcd3836e: 1.31
     b047dfba10fa14827b80444cc725af72: -1493
     e63a712b8891b4e60a35e8613d298948: 20

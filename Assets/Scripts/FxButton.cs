@@ -8,32 +8,22 @@ public class FxButton : MonoBehaviour
     public bool isOn = false;
     public bool isToggled = false;
     SpriteRenderer sr;
+    public AudioManager audioManager;
 
     
     // fx selections
     public SoundFx[] FxSelect;
 
     void OnMouseUpAsButton(){
+        // change fx button params
         isToggled = true;
-        
-        
         if(isOn==true){
             isOn=false;
         }else{
             isOn=true;
         }
-        
-        // if an fx is turned on
-        foreach(SoundFx selection in FxSelect){
-            if(selection.isEnabled == true){
-                if(isOn == true){
-                    print(selection.Name + " turned on");
-                }else{
-                    print(selection.Name + " turned off");
-                }
-            }
-        }
-        
+        // build and send am req
+        SendAudioManagerReq();
         ChangeColor();
     }
 
@@ -48,5 +38,22 @@ public class FxButton : MonoBehaviour
             sr.color = Color.black;
         }
     }
- 
+
+    public void SendAudioManagerReq(){
+        string cmmd;
+        // if an fx is enabled
+        foreach(SoundFx selection in FxSelect){
+            if(selection.isEnabled == true){
+                string FxName = selection.Name;
+                
+                if(isOn == true){
+                    cmmd = "fadeIn";
+                }else{
+                    cmmd = "fadeOut";
+                }
+                
+                audioManager.FxChange(FxName, cmmd);
+            }
+        }
+    }
 }
